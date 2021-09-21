@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDisclosure } from "@chakra-ui/react"
+import SideDrawer from './components/Drawer'
+import TopBar from './components/TopBar'
+import React from 'react';
+import routes from './Router/routerConfig'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom"
 
-function App() {
+const App = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <TopBar onHamburgerClick={onOpen}/>
+      <Router>
+        <SideDrawer onDrawerOpen={isOpen} onDrawerClose={onClose}/>
+        <Switch>
+          {routes.map((route) => {
+            return (
+              <Route path={route.path} key={route} exact>
+                <route.component />
+              </Route>
+            );
+          })}
+        </Switch>
+      </Router>
+    </>
+  )
 }
 
 export default App;
