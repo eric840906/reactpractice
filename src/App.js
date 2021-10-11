@@ -13,8 +13,8 @@ const App = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <TopBar onHamburgerClick={onOpen}/>
       <Router>
+        <TopBar onHamburgerClick={onOpen}/>
         <SideDrawer onDrawerOpen={isOpen} onDrawerClose={onClose}/>
         <Switch>
           {routes.map((route) => {

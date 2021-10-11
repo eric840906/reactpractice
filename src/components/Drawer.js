@@ -8,7 +8,7 @@ import {
   VStack,
   Box
 } from "@chakra-ui/react"
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom"
 import routes from '../Router/routerConfig'
 import React, { useEffect, useState } from 'react'
 
@@ -30,14 +30,14 @@ const SideDrawer = ({ onDrawerOpen, onDrawerClose }) => {
         <DrawerOverlay />
         <DrawerContent style={{width: '80%'}}>
           <DrawerCloseButton />
-          <DrawerHeader bg="gray.100" >zo6596 App</DrawerHeader>
+          <DrawerHeader bg="white" >Loana's Sandwich</DrawerHeader>
 
           <DrawerBody>
             <VStack>
               {
                 routes.map(route => {
                   return (
-                    <Box w="100%" padding={2} key={route.name} bg={linkState.pathname === route.path ? 'red' : ''}>
+                    <Box w="100%" padding={2} key={route.name} bg={linkState && linkState.pathname === route.path ? 'red' : ''}>
                       <NavLink textalign="center" display="inline-block" w="100%" to={route.path}>{route.name}</NavLink>
                     </Box>
                   )

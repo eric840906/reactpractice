@@ -2,12 +2,12 @@ import { PhotoPage, TestPage } from "../Pages";
 const routes = [
   {
     path: "/",
-    name: "PhotoPage",
+    name: "Home",
     component: PhotoPage
   },
   {
     path: "/test",
-    name: "TestPage",
+    name: "Test",
     component: TestPage
   }
 ];
