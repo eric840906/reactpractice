@@ -6,6 +6,7 @@ const brand = {
     "green": "#65bb63",
     "pink": "#ff7878",
     "blue": '#477bff',
-    "beige": "#eeeaea"
+    "beige": "#eeeaea",
+    "gray": "#848484"
   }
 export default brand

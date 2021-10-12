@@ -1,14 +1,14 @@
-import { PhotoPage, TestPage } from "../Pages";
+import { HomePage, MenuPage } from "../Pages";
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: PhotoPage
+    component: HomePage
   },
   {
-    path: "/test",
-    name: "Test",
-    component: TestPage
+    path: "/menu",
+    name: "Menu",
+    component: MenuPage
   }
 ];
 

@@ -5,7 +5,7 @@ import { getPhotos } from '../api/unsplash'
 import React, {useState} from 'react'
 import { HomeSwiper } from '../components/HomePage/Swiper'
 
-const PhotoPage = () => {
+const HomePage = () => {
   // const [searchTerm, setSearchTerm] = useState('')
   // const [photos, setPhotos] = useState([])
   // const termChange = e => {
@@ -53,4 +53,4 @@ const PhotoPage = () => {
   )
 }
 
-export default PhotoPage;
+export default HomePage;

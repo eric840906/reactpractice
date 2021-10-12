@@ -1,2 +1,2 @@
-export { default as PhotoPage } from "./PhotoPage"
-export { default as TestPage } from "./TestPage"
+export { default as HomePage } from "./HomePage"
+export { default as MenuPage } from "./MenuPage"

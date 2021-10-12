@@ -7,11 +7,13 @@ import {
   DrawerCloseButton,
   VStack,
   Heading,
-  Box
+  Box,
+  Flex
 } from "@chakra-ui/react"
 import { NavLink, useLocation } from "react-router-dom"
 import routes from '../Router/routerConfig'
 import React, { useEffect, useState } from 'react'
+import UserCard from "./Drawer/UserCard"
 
 const SideDrawer = ({ onDrawerOpen, onDrawerClose }) => {
   const btnRef = React.useRef()
@@ -37,14 +39,17 @@ const SideDrawer = ({ onDrawerOpen, onDrawerClose }) => {
             </Heading>
           </DrawerHeader>
 
-          <DrawerBody>
+          <DrawerBody p={0}>
             <VStack>
+              <UserCard/>
               {
                 routes.map(route => {
                   return (
-                    <Box w="100%" padding={2} key={route.name} bg={linkState && linkState.pathname === route.path ? 'red' : ''}>
-                      <NavLink textalign="center" display="inline-block" w="100%" to={route.path}>{route.name}</NavLink>
-                    </Box>
+                    <NavLink to={route.path} style={{width: '100%', marginTop: 0}} key={route.path}>
+                      <Box as="button" w="100%" padding={2} key={route.name} bg={linkState && linkState.pathname === route.path ? 'brand.200' : ''} color={linkState && linkState.pathname === route.path ? 'brand.100' : ''}>
+                        {route.name}
+                      </Box>
+                    </NavLink>
                   )
                 })
               }
