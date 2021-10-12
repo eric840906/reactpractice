@@ -36,7 +36,7 @@ export const HomeSwiper = ({itemArr, options}) => {
                 </Heading>
                 <Flex justifyContent="center" gridGap={5} style={{marginBottom:40}} flexDirection={{base:'column', md:'row'}}>
                   <Text w={{base: '80%', md: '35%'}} color="brand.text" alignSelf={{base:"center", md:"baseline"}}>{item.text}</Text>
-                  <Image alignSelf="center" boxSize="150px" src={item.image} alt=""/>
+                  <Image alignSelf="center" borderRadius="10px" boxSize="150px" src={item.image} alt=""/>
                 </Flex>
               </SwiperSlide>
             )

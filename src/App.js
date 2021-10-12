@@ -3,6 +3,7 @@ import SideDrawer from './components/Drawer'
 import TopBar from './components/TopBar'
 import React from 'react';
 import routes from './Router/routerConfig'
+import BottomBar from "./components/BottomBar";
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,6 +26,7 @@ const App = () => {
             );
           })}
         </Switch>
+        <BottomBar/>
       </Router>
     </>
   )
