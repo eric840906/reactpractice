@@ -11,7 +11,7 @@ import {
   Button
 } from "@chakra-ui/react"
 
-const TransitionExample = ({ title }) => {
+const Modal = ({ title, content, onAction }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const cancelRef = React.useRef()
 
@@ -38,7 +38,7 @@ const TransitionExample = ({ title }) => {
             <Button ref={cancelRef} onClick={onClose}>
               No
             </Button>
-            <Button colorScheme="red" ml={3}>
+            <Button colorScheme="red" ml={3} onClick={onAction}>
               Yes
             </Button>
           </AlertDialogFooter>
@@ -48,4 +48,4 @@ const TransitionExample = ({ title }) => {
   )
 }
 
-export default TransitionExample
+export default Modal
