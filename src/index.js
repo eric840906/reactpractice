@@ -6,13 +6,21 @@ import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from "@chakra-ui/react"
 import theme from "./theme";
 import Fonts from './theme/Fonts'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import reducers from './reducers';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducers, composeEnhancers(applyMiddleware()))
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider theme={theme} resetCS={true}>
-      <Fonts/>
-      <App />
-    </ChakraProvider>
+    <Provider store={store}>
+      <ChakraProvider theme={theme} resetCS={true}>
+        <Fonts/>
+        <App />
+      </ChakraProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,16 +1,24 @@
 import React from "react";
-import { Flex, Heading, Image, Button } from "@chakra-ui/react";
-import { IoIosLogIn } from 'react-icons/io'
+import { Flex, Heading, Image, Text, Icon} from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import { MdEmail, MdAccountCircle } from "react-icons/md";
 
 const UserCard = () => {
+  const userInfo = useSelector(state => state.auth.userInfo)
   return (
-    <Flex bg="brand.100" padding={5} w="100%" justifyContent="space-around" flexDirection="row">
-      <Image boxSize={{base: '80px', sm: '100px'}} objectFit="cover" borderRadius="100%" src="https://i.pinimg.com/originals/8c/67/69/8c6769e0323ffa6e7aadf98ddf34d5fe.jpg"/>
-      <Flex flexDirection="column" justifyContent="space-between" alignItems="center"> 
-        <Heading size="sm" alignSelf="flex-start" fontWeight="bold">Guest</Heading>
-        <Button fontSize="16px" borderRadius="100" boxShadow="md" w={{base: "100px", sm: "150px"}} variant="default" leftIcon={<IoIosLogIn size={20} />}> 
-          Log in
-        </Button>
+    <Flex bg="brand.100" padding={3} w="100%" gridGap={2} flexDirection="row">
+      {userInfo && <Image boxSize={{base: '80px', sm: '90px'}} objectFit="cover" borderRadius="100%" src={userInfo.getImageUrl()}/>}
+      <Flex flexDirection="column" alignItems="baseline" justifyContent="end"> 
+        <Flex gridGap="5px" alignItems="center" w={{base: '130px', sm: 'auto'}}>
+          <Icon as={MdAccountCircle} w={5} h={5}/>
+          <Heading size="sm" alignSelf="flex-start" fontWeight="bold" textOverflow="ellipsis" whiteSpace="nowrap" overflow="hidden">{userInfo && userInfo.getName() ? userInfo.getName() : 'Guest'}</Heading>
+        </Flex>
+        {userInfo && 
+          <Flex gridGap="5px" alignItems="center" w={{base: '130px', sm: 'auto'}}>
+            <Icon as={MdEmail} w={5} h={5}/>
+            <Text textOverflow="ellipsis" whiteSpace="nowrap" overflow="hidden">{userInfo.getEmail()}</Text>
+          </Flex>
+        }
       </Flex>
     </Flex>
   )

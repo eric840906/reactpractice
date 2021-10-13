@@ -32,7 +32,6 @@ const SideDrawer = ({ onDrawerOpen, onDrawerClose }) => {
       >
         <DrawerOverlay />
         <DrawerContent style={{width: '80%'}}>
-          <DrawerCloseButton />
           <DrawerHeader bg="white" >
             <Heading size="md">
               Loana's Sandwich

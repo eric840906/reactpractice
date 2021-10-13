@@ -1,7 +1,7 @@
 import { useDisclosure } from "@chakra-ui/react"
 import SideDrawer from './components/Drawer'
 import TopBar from './components/TopBar'
-import React from 'react';
+import React, {useEffect} from 'react';
 import routes from './Router/routerConfig'
 import BottomBar from "./components/BottomBar";
 import {
