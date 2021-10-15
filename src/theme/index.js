@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react"
+import { extendTheme } from '@chakra-ui/react'
 import brand from './Brand'
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
@@ -8,7 +8,7 @@ const theme = extendTheme({
   components: {
     Button: {
       variants: {
-        'default': {
+        default: {
           background: 'white',
           color: 'brand.gray',
           _hover: {

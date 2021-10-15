@@ -1,15 +1,15 @@
-import { HomePage, MenuPage } from "../Pages";
+import { HomePage, MenuPage } from '../Pages'
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: HomePage
   },
   {
-    path: "/menu",
-    name: "Menu",
+    path: '/menu',
+    name: 'Menu',
     component: MenuPage
   }
-];
+]
 
-export default routes;
+export default routes

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Flex, Text, Icon, Heading } from '@chakra-ui/react'
 import { MdFavorite, MdListAlt, MdHome, MdShoppingCart } from 'react-icons/md'
 import { FaTicketAlt } from 'react-icons/fa'
@@ -46,35 +46,41 @@ const iconStyle = {
   w: { base: 5, md: 8 },
   h: { base: 5, md: 8 }
 }
+
 const BottomBar = () => {
+  const [dynamicMargin, setDynamicMargin] = useState(20)
+  // const [windowLength, setWindowLength] = useState(null)
+  useEffect(() => {
+    const windowResize = e => setDynamicMargin(e.currentTarget.innerHeight)
+    window.addEventListener('resize', windowResize)
+    return () => window.removeEventListener('resize', windowResize)
+  }, [])
   return (
-    <Flex {...barStyle}>
-      <Button {...buttonNormalStyle}>
-        <Icon as={MdFavorite} {...iconStyle} />
-        <Text fontSize={{ base: 12, md: 18 }}>Likes</Text>
-      </Button>
-      <Button {...buttonNormalStyle}>
-        <Icon as={MdListAlt} {...iconStyle} />
-        <Text fontSize={{ base: 12, md: 18 }}>DIY</Text>
-      </Button>
-      <Button {...buttonActiveStyle}>
-        <Icon as={MdHome} {...iconStyle} />
-        <Heading fontSize={{ base: 12, md: 18 }}>
-          Home
-        </Heading>
-      </Button>
-      <Button {...buttonNormalStyle}>
-        <Icon as={FaTicketAlt} {...iconStyle} />
-        <Text fontSize={{ base: 12, md: 18 }}>Coupons</Text>
-      </Button>
-      <Button {...buttonNormalStyle}>
-        <Icon
-          as={MdShoppingCart}
-          {...iconStyle}
-        />
-        <Text fontSize={{ base: 12, md: 18 }}>Cart</Text>
-      </Button>
-    </Flex>
+    <>
+      <Flex marginTop={dynamicMargin} />
+      <Flex {...barStyle}>
+        <Button {...buttonNormalStyle}>
+          <Icon as={MdFavorite} {...iconStyle} />
+          <Text fontSize={{ base: 12, md: 18 }}>Likes</Text>
+        </Button>
+        <Button {...buttonNormalStyle}>
+          <Icon as={MdListAlt} {...iconStyle} />
+          <Text fontSize={{ base: 12, md: 18 }}>DIY</Text>
+        </Button>
+        <Button {...buttonActiveStyle}>
+          <Icon as={MdHome} {...iconStyle} />
+          <Heading fontSize={{ base: 12, md: 18 }}>Home</Heading>
+        </Button>
+        <Button {...buttonNormalStyle}>
+          <Icon as={FaTicketAlt} {...iconStyle} />
+          <Text fontSize={{ base: 12, md: 18 }}>Coupons</Text>
+        </Button>
+        <Button {...buttonNormalStyle}>
+          <Icon as={MdShoppingCart} {...iconStyle} />
+          <Text fontSize={{ base: 12, md: 18 }}>Cart</Text>
+        </Button>
+      </Flex>
+    </>
   )
 }
 
