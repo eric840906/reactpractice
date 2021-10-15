@@ -7,8 +7,10 @@ const unsplash = axios.create({
   }
 })
 
-export const getPhotos = async (term) => {
-  const { data: { results } } = await unsplash.get('/search/photos',{
+export const getPhotos = async term => {
+  const {
+    data: { results }
+  } = await unsplash.get('/search/photos', {
     params: {
       query: term
     }
