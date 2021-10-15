@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { signIn, signOut } from '../../actions'
-import { Button } from '@chakra-ui/react'
+import { Button, useDisclosure } from '@chakra-ui/react'
 import { MdLogin, MdLogout } from 'react-icons/md'
-
+import { FaGoogle } from 'react-icons/fa'
+import BasicDialog from '../Dialog'
 const GoogleAuth = () => {
+  const { onClose } = useDisclosure()
   const isSignedIn = useSelector(state => state.auth.isSignedIn)
   const dispatch = useDispatch()
   const onAuthChange = (SignedIn) => {
@@ -28,10 +30,23 @@ const GoogleAuth = () => {
     variant:"default",
     padding: 0
   }
+  const modalOptions = {
+    triggerBtn: {
+      icon: () => <MdLogin size={25}/>
+    }
+  }
+  // const authBtn = () => {
+  //   return isSignedIn
+  //     ? <Button {...buttonStyle} onClick={() =>window.auth.signOut()}><MdLogout size={25}/></Button>
+  //     : <Button {...buttonStyle} onClick={() => window.auth.signIn()}><MdLogin size={25}/></Button>
+      
+  // }
   const authBtn = () => {
     return isSignedIn
-      ? <Button {...buttonStyle} onClick={() =>window.auth.signOut()}><MdLogout size={25}/></Button>
-      : <Button {...buttonStyle} onClick={() => window.auth.signIn()}><MdLogin size={25}/></Button>
+      ? <Button w="40px" h="40px" {...buttonStyle} onClick={() =>window.auth.signOut()}><MdLogout size={25}/></Button>
+      : <BasicDialog modalOptions={modalOptions}>
+          <Button boxShadow="sm" w="80%" alignSelf="center" leftIcon={<FaGoogle/>} {...buttonStyle} onClick={() => window.auth.signIn()}>Log in with Google account</Button>
+        </BasicDialog> 
       
   }
   useEffect(() => loadGoogleApi())

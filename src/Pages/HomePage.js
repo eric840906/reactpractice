@@ -4,6 +4,7 @@ import { VStack } from "@chakra-ui/react"
 import { getPhotos } from '../api/unsplash'
 import React, {useState} from 'react'
 import { HomeSwiper } from '../components/HomePage/Swiper'
+import BuilderBlock from '../components/BuilderBlock'
 
 const HomePage = () => {
   // const [searchTerm, setSearchTerm] = useState('')
@@ -44,10 +45,13 @@ const HomePage = () => {
   ]
   return (
     <>
-      <VStack>
+      <VStack gridGap={10}>
         {/* <SearchBar onTermChange={termChange} onSubmitTerm={submitTerm} term={searchTerm} />
         <PhotoList photos={photos}/> */}
         <HomeSwiper itemArr={eventItems} options={{centeredSlides: true, loop: true}}/>
+        <BuilderBlock/>
+        <BuilderBlock/>
+        <BuilderBlock/>
       </VStack>
     </>
   )

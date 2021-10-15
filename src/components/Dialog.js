@@ -1,51 +1,44 @@
 import React from "react"
 import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogContent,
-  AlertDialogOverlay,
-  AlertDialogCloseButton,
+  Modal,
+  ModalOverlay,
+  ModalHeader,
+  ModalContent,
   useDisclosure,
+  ModalFooter,
   Button
 } from "@chakra-ui/react"
 
-const Modal = ({ title, content, onAction }) => {
+const BasicDialog = ({children, modalOptions}) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const cancelRef = React.useRef()
-
+  const openBtn = () => {
+    switch(Object.keys(modalOptions.triggerBtn)[0]){
+      case('icon'):
+        return <Button variant="default" w="40px" h="40px" padding={0} borderRadius="100" onClick={onOpen}>{modalOptions.triggerBtn.icon()}</Button>
+      case('text'):
+        return <Button variant="default" w="40px" h="40px" borderRadius="100" onClick={onOpen}>{modalOptions.triggerBtn.text()}</Button>
+      default:
+        return <Button variant="default" w="40px" h="40px" borderRadius="100" onClick={onOpen}>Open Modal</Button>
+    }
+  }
   return (
     <>
-      <Button onClick={onOpen}>Discard</Button>
-      <AlertDialog
-        motionPreset="slideInBottom"
-        leastDestructiveRef={cancelRef}
-        onClose={onClose}
-        isOpen={isOpen}
-        isCentered
-      >
-        <AlertDialogOverlay />
-
-        <AlertDialogContent>
-          <AlertDialogHeader>Discard Changes?</AlertDialogHeader>
-          <AlertDialogCloseButton />
-          <AlertDialogBody>
-            Are you sure you want to discard all of your notes? 44 words will be
-            deleted.
-          </AlertDialogBody>
-          <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
-              No
+      {modalOptions && openBtn()}
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent w="80%">
+          <ModalHeader></ModalHeader>
+          {children}
+          <ModalFooter>
+            {/* <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
             </Button>
-            <Button colorScheme="red" ml={3} onClick={onAction}>
-              Yes
-            </Button>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+            <Button variant="ghost">Secondary Action</Button> */}
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   )
 }
 
-export default Modal
+export default BasicDialog
