@@ -6,6 +6,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
   VStack,
+  Heading,
   Box
 } from "@chakra-ui/react"
 import { NavLink, useLocation } from "react-router-dom"
@@ -30,7 +31,9 @@ const SideDrawer = ({ onDrawerOpen, onDrawerClose }) => {
         <DrawerOverlay />
         <DrawerContent style={{width: '80%'}}>
           <DrawerCloseButton />
-          <DrawerHeader bg="white" >Loana's Sandwich</DrawerHeader>
+          <DrawerHeader bg="white" >
+            <Heading size="md">Loana's Sandwich</Heading>
+          </DrawerHeader>
 
           <DrawerBody>
             <VStack>
