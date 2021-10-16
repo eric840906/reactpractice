@@ -6,9 +6,9 @@ import { MdLogin, MdLogout } from 'react-icons/md'
 import { FaGoogle } from 'react-icons/fa'
 import BasicDialog from '../Dialog'
 const GoogleAuth = () => {
-  const isSignedIn = useSelector(state => state.auth.isSignedIn)
+  const isSignedIn = useSelector((state) => state.auth.isSignedIn)
   const dispatch = useDispatch()
-  const onAuthChange = SignedIn => {
+  const onAuthChange = (SignedIn) => {
     return SignedIn
       ? dispatch(signIn(window.auth.currentUser.get().getBasicProfile()))
       : dispatch(signOut())
@@ -32,7 +32,9 @@ const GoogleAuth = () => {
     fontSize: '16px',
     borderRadius: '100',
     variant: 'default',
-    padding: 0
+    boxShadow: 'sm',
+    alignSelf: 'center',
+    padding: '10px'
   }
   const modalOptions = {
     triggerBtn: {
@@ -42,8 +44,8 @@ const GoogleAuth = () => {
   const authBtn = () => {
     return isSignedIn ? (
       <Button
-        w='40px'
-        h='40px'
+        w="40px"
+        h="40px"
         {...buttonStyle}
         onClick={() => window.auth.signOut()}
       >
@@ -52,9 +54,6 @@ const GoogleAuth = () => {
     ) : (
       <BasicDialog modalOptions={modalOptions}>
         <Button
-          boxShadow='sm'
-          w='80%'
-          alignSelf='center'
           leftIcon={<FaGoogle />}
           {...buttonStyle}
           onClick={() => window.auth.signIn()}

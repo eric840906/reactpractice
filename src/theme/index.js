@@ -6,6 +6,9 @@ const theme = extendTheme({
     brand
   },
   components: {
+    Heading: {
+      color: 'brand.heading'
+    },
     Button: {
       variants: {
         default: {
@@ -22,10 +25,23 @@ const theme = extendTheme({
           }
         }
       }
+    },
+    Divider: {
+      variants: {
+        default: {
+          background: 'brand.gray',
+          borderColor: 'brand.gray',
+          border: 1,
+          borderWidth: '2px',
+          height: '3px',
+          borderRadius: '100px'
+        }
+      }
     }
   },
   fonts: {
-    heading: 'Heading'
+    heading: 'Quicksand',
+    body: 'Quicksand'
   }
 })
 

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Button, Flex, Text, Icon, Heading } from '@chakra-ui/react'
 import { MdFavorite, MdListAlt, MdHome, MdShoppingCart } from 'react-icons/md'
 import { FaTicketAlt } from 'react-icons/fa'
+import useResize from '../hooks/useResize'
 const buttonNormalStyle = {
   flexDirection: 'column',
   borderRadius: '0',
@@ -49,16 +50,15 @@ const iconStyle = {
 
 const BottomBar = () => {
   const [dynamicMargin, setDynamicMargin] = useState(20)
-  // const [windowLength, setWindowLength] = useState(null)
+  const barRef = useRef(null)
+  const [windowLength] = useResize(barRef)
   useEffect(() => {
-    const windowResize = e => setDynamicMargin(e.currentTarget.innerHeight)
-    window.addEventListener('resize', windowResize)
-    return () => window.removeEventListener('resize', windowResize)
-  }, [])
+    setDynamicMargin(windowLength)
+  }, [windowLength])
   return (
     <>
       <Flex marginTop={dynamicMargin} />
-      <Flex {...barStyle}>
+      <Flex ref={barRef} {...barStyle}>
         <Button {...buttonNormalStyle}>
           <Icon as={MdFavorite} {...iconStyle} />
           <Text fontSize={{ base: 12, md: 18 }}>Likes</Text>
