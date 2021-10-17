@@ -4,7 +4,7 @@ import { signIn, signOut } from '../../actions'
 import { useToast } from '@chakra-ui/react'
 import { MdLogin, MdLogout } from 'react-icons/md'
 import { FaGoogle } from 'react-icons/fa'
-import BasicDialog from '../DialogV2'
+import BasicDialog from '../Dialog'
 const GoogleAuth = () => {
   const toast = useToast()
   const isSignedIn = useSelector((state) => state.auth.isSignedIn)
@@ -34,7 +34,7 @@ const GoogleAuth = () => {
     const userName = window.auth.currentUser.get().getBasicProfile().getName()
     return toast({
       title: `Welcome back, ${userName}!`,
-      position: 'top-right',
+      position: 'top',
       status: 'success',
       duration: 9000,
       isClosable: true
@@ -44,7 +44,7 @@ const GoogleAuth = () => {
     await window.auth.signOut()
     return toast({
       title: 'Sign out successfully!',
-      position: 'top-right',
+      position: 'top',
       status: 'error',
       duration: 9000,
       isClosable: true
