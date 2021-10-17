@@ -25,6 +25,34 @@ const theme = extendTheme({
             transform: 'scale(0.9)'
           }
         },
+        danger: {
+          background: 'brand.pink',
+          boxShadow: 'md',
+          color: 'red.50',
+          _hover: {
+            background: 'red.500',
+            color: 'white'
+          },
+          _active: {
+            background: 'red.700',
+            color: 'white',
+            transform: 'scale(0.9)'
+          }
+        },
+        success: {
+          background: 'brand.green',
+          boxShadow: 'md',
+          color: 'green.50',
+          _hover: {
+            background: 'green.500',
+            color: 'white'
+          },
+          _active: {
+            background: 'green.700',
+            color: 'white',
+            transform: 'scale(0.9)'
+          }
+        },
         active: {
           background: 'brand.200',
           color: 'orange.50',

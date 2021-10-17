@@ -7,7 +7,12 @@ import '../../assets/style.css'
 const ProductCard = ({ product }) => {
   return (
     <Flex borderRadius="10px" overflow="hidden" boxShadow="md" w="100%">
-      <Fade timeout={10} in={true} style={{ display: 'flex' }}>
+      <Fade
+        className="fade-card"
+        timeout={10}
+        in={true}
+        style={{ display: 'flex' }}
+      >
         <Flex w="100%" bg="brand.100">
           <Image
             boxSize={{ base: '100px', sm: '150px' }}
