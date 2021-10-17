@@ -10,9 +10,9 @@ const dividerHeadingStyle = {
   marginBottom: 1
 }
 
-const SectionDivider = ({ title }) => {
+const SectionDivider = ({ title, px }) => {
   return (
-    <Box w="100%" px={5}>
+    <Box w="100%" px={px}>
       <Heading {...dividerHeadingStyle}>{title}</Heading>
       <Divider variant="default" />
     </Box>
@@ -20,7 +20,8 @@ const SectionDivider = ({ title }) => {
 }
 
 SectionDivider.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  px: PropTypes.number
 }
 
 export default SectionDivider

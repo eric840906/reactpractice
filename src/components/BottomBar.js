@@ -32,6 +32,7 @@ const buttonActiveStyle = {
 }
 const barStyle = {
   position: 'fixed',
+  zIndex: 'sticky',
   bottom: 0,
   left: 0,
   bg: 'brand.beige',

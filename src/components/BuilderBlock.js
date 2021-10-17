@@ -29,7 +29,7 @@ const BuilderBlock = () => {
       >
         Make yourself a unique sandwich here!
       </Heading>
-      <Button marginBottom="20px" boxShadow="sm" w="200px" variant="default">
+      <Button marginBottom="20px" w="200px" variant="default">
         Make your own
       </Button>
     </Flex>

@@ -13,6 +13,7 @@ const theme = extendTheme({
       variants: {
         default: {
           background: 'white',
+          boxShadow: 'md',
           color: 'brand.gray',
           _hover: {
             background: 'brand.200',
@@ -23,6 +24,11 @@ const theme = extendTheme({
             color: 'orange.50',
             transform: 'scale(0.9)'
           }
+        },
+        active: {
+          background: 'brand.200',
+          color: 'orange.50',
+          transform: 'scale(0.9)'
         }
       }
     },
