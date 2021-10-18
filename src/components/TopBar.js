@@ -8,33 +8,32 @@ import Proptype from 'prop-types'
 
 const TopBar = ({ onHamburgerClick }) => {
   const location = useLocation()
-  console.log(location)
   const pageTitle = useTitle(location.pathname)
   return (
     <Flex
-      position="sticky"
-      zIndex="sticky"
-      top="0"
-      boxShadow="md"
-      bg="white"
-      w="100%"
-      justifyContent="space-between"
+      position='sticky'
+      zIndex='sticky'
+      top='0'
+      boxShadow='md'
+      bg='white'
+      w='100%'
+      justifyContent='space-between'
       p={2}
-      color="white"
+      color='white'
     >
       <Button
-        variant="default"
-        borderRadius="100px"
-        boxShadow="none"
-        w="40px"
-        h="40px"
+        variant='default'
+        borderRadius='100px'
+        boxShadow='none'
+        w='40px'
+        h='40px'
         onClick={onHamburgerClick}
-        size="sm"
+        size='sm'
       >
         <HamburgerIcon w={5} h={5} />
       </Button>
-      <Flex alignSelf="center" color="black">
-        <Heading color="brand.heading" size="md">
+      <Flex alignSelf='center' color='black'>
+        <Heading textTransform='capitalize' color='brand.heading' size='md'>
           {pageTitle}
         </Heading>
       </Flex>

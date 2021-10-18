@@ -4,23 +4,33 @@ import TopBar from './components/TopBar'
 import React from 'react'
 import routes from './Router/routerConfig'
 import BottomBar from './components/BottomBar'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+// import { Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch } from 'react-router-dom'
+import { history } from './Router/history'
+import { RouteWithSubRoutes } from './Router/RouteWithSubRoutes'
 
 const App = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Router>
+      <Router history={history}>
         <TopBar onHamburgerClick={onOpen} />
         <SideDrawer onDrawerOpen={isOpen} onDrawerClose={onClose} />
         <Switch>
-          {routes.map(route => {
+          {/* {routes.map(route => {
             return (
-              <Route path={route.path} key={route} exact>
-                <route.component />
-              </Route>
+              <Route
+                path={route.path}
+                key={route}
+                component={route.component}
+                exact
+                {...route}
+              />
             )
-          })}
+          })} */}
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
         </Switch>
         <BottomBar />
       </Router>

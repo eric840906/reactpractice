@@ -1,4 +1,5 @@
-import { HomePage, MenuPage } from '../Pages'
+import { HomePage, MenuPage, BuilderPage } from '../Pages'
+import BuilderPageRoutes from './BuilderPage'
 const routes = [
   {
     path: '/',
@@ -9,6 +10,12 @@ const routes = [
     path: '/menu',
     name: 'Menu',
     component: MenuPage
+  },
+  {
+    path: '/builder',
+    name: 'Builder',
+    component: BuilderPage,
+    routes: BuilderPageRoutes
   }
 ]
 

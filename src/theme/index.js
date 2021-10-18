@@ -61,6 +61,9 @@ const theme = extendTheme({
       }
     },
     Divider: {
+      size: {
+        md: '50px'
+      },
       variants: {
         default: {
           background: 'brand.gray',

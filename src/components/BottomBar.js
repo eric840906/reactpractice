@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Button, Flex, Text, Icon, Heading } from '@chakra-ui/react'
 import { MdFavorite, MdListAlt, MdHome, MdShoppingCart } from 'react-icons/md'
+import { useLocation, useHistory } from 'react-router-dom'
 import { FaTicketAlt } from 'react-icons/fa'
 import useResize from '../hooks/useResize'
 const buttonNormalStyle = {
@@ -28,7 +29,16 @@ const buttonActiveStyle = {
   color: 'brand.100',
   bg: 'brand.200',
   h: 'auto',
-  padding: 1
+  padding: 1,
+  _hover: {
+    background: 'orange.700',
+    color: 'orange.50'
+  },
+  _active: {
+    background: 'orange.700',
+    color: 'orange.50'
+  },
+  pointerevent: 'none'
 }
 const barStyle = {
   position: 'fixed',
@@ -50,9 +60,18 @@ const iconStyle = {
 }
 
 const BottomBar = () => {
+  const history = useHistory()
   const [dynamicMargin, setDynamicMargin] = useState(20)
+  const location = useLocation()
+  const [linkState, setLinkState] = useState('/')
+  useEffect(() => {
+    setLinkState(location)
+  }, [location])
   const barRef = useRef(null)
   const [windowLength] = useResize(barRef)
+  const buttonStyle = value => {
+    return linkState.pathname === value ? buttonActiveStyle : buttonNormalStyle
+  }
   useEffect(() => {
     setDynamicMargin(windowLength)
   }, [windowLength])
@@ -64,11 +83,20 @@ const BottomBar = () => {
           <Icon as={MdFavorite} {...iconStyle} />
           <Text fontSize={{ base: 12, md: 18 }}>Likes</Text>
         </Button>
-        <Button {...buttonNormalStyle}>
+        <Button
+          {...buttonStyle('/builder')}
+          onClick={() => history.push('/builder')}
+          pointerEvents={linkState.pathname === '/builder' ? 'none' : 'all'}
+          // disabled={linkState.pathname === '/builder'}
+        >
           <Icon as={MdListAlt} {...iconStyle} />
           <Text fontSize={{ base: 12, md: 18 }}>DIY</Text>
         </Button>
-        <Button {...buttonActiveStyle}>
+        <Button
+          {...buttonStyle('/')}
+          onClick={() => history.push('/')}
+          pointerEvents={linkState.pathname === '/' ? 'none' : 'all'}
+        >
           <Icon as={MdHome} {...iconStyle} />
           <Heading fontSize={{ base: 12, md: 18 }}>Home</Heading>
         </Button>
