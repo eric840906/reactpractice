@@ -4,11 +4,13 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    exact: true,
     component: HomePage
   },
   {
     path: '/menu',
     name: 'Menu',
+    exact: true,
     component: MenuPage
   },
   {

@@ -17,17 +17,6 @@ const App = () => {
         <TopBar onHamburgerClick={onOpen} />
         <SideDrawer onDrawerOpen={isOpen} onDrawerClose={onClose} />
         <Switch>
-          {/* {routes.map(route => {
-            return (
-              <Route
-                path={route.path}
-                key={route}
-                component={route.component}
-                exact
-                {...route}
-              />
-            )
-          })} */}
           {routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
           ))}
