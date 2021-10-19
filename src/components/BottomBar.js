@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Button, Flex, Text, Icon, Heading } from '@chakra-ui/react'
 import { MdFavorite, MdListAlt, MdHome, MdShoppingCart } from 'react-icons/md'
-import { useLocation, useHistory } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { FaTicketAlt } from 'react-icons/fa'
+import { history } from '../Router/history'
 import useResize from '../hooks/useResize'
 const buttonNormalStyle = {
   flexDirection: 'column',
@@ -60,7 +61,6 @@ const iconStyle = {
 }
 
 const BottomBar = () => {
-  const history = useHistory()
   const [dynamicMargin, setDynamicMargin] = useState(20)
   const location = useLocation()
   const [linkState, setLinkState] = useState('/')
@@ -70,6 +70,7 @@ const BottomBar = () => {
   const barRef = useRef(null)
   const [windowLength] = useResize(barRef)
   const buttonStyle = value => {
+    console.log()
     return linkState.pathname === value ? buttonActiveStyle : buttonNormalStyle
   }
   useEffect(() => {
