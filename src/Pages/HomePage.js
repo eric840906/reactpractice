@@ -1,9 +1,9 @@
 import { VStack } from '@chakra-ui/react'
 import React from 'react'
-import { TheSwiper } from '../components/Swiper/Swiper'
-import BuilderBlock from '../components/BuilderBlock'
-import ProductList from '../components/Product/ProductList'
-import SectionDivider from '../components/SectionDivider'
+import { TheSwiper } from 'components/Swiper/Swiper'
+import BuilderBlock from 'components/BuilderBlock'
+import ProductList from 'components/Product/ProductList'
+import SectionDivider from 'components/SectionDivider'
 
 const HomePage = () => {
   const eventItems = [

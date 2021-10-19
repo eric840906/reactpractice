@@ -2,8 +2,8 @@ import React from 'react'
 import { Button, Flex, Heading } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { useLocation } from 'react-router-dom'
-import useTitle from '../hooks/useTitle'
-import GoogleAuth from './Auth/GoogleAuth'
+import useTitle from 'hooks/useTitle'
+import GoogleAuth from 'components/Auth/GoogleAuth'
 import Proptype from 'prop-types'
 
 const TopBar = ({ onHamburgerClick }) => {

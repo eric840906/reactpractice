@@ -3,12 +3,8 @@ import {
   MeatPage,
   OtherPage,
   DonePage
-} from '../../../src/Pages/BuilderPage/SubPages'
+} from 'Pages/BuilderPage/SubPages'
 const BuilderPageRoutes = [
-  {
-    name: 'Bread',
-    component: BreadPage
-  },
   {
     path: '/builder/meat',
     name: 'Meat',
@@ -23,6 +19,11 @@ const BuilderPageRoutes = [
     path: '/builder/done',
     name: 'Done',
     component: DonePage
+  },
+  {
+    path: '/',
+    name: 'Bread',
+    component: BreadPage
   }
 ]
 

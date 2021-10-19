@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { signIn, signOut } from '../../actions'
+import { signIn, signOut } from 'actions'
 import { useToast } from '@chakra-ui/react'
 import { MdLogin, MdLogout } from 'react-icons/md'
 import { FaGoogle } from 'react-icons/fa'
-import BasicDialog from '../Dialog'
+import BasicDialog from 'components/Dialog'
 const GoogleAuth = () => {
   const toast = useToast()
-  const isSignedIn = useSelector((state) => state.auth.isSignedIn)
+  const isSignedIn = useSelector(state => state.auth.isSignedIn)
   const dispatch = useDispatch()
-  const onAuthChange = (SignedIn) => {
+  const onAuthChange = SignedIn => {
     return SignedIn
       ? dispatch(signIn(window.auth.currentUser.get().getBasicProfile()))
       : dispatch(signOut())
@@ -31,7 +31,10 @@ const GoogleAuth = () => {
   }
   const onSignIn = async () => {
     await window.auth.signIn()
-    const userName = window.auth.currentUser.get().getBasicProfile().getName()
+    const userName = window.auth.currentUser
+      .get()
+      .getBasicProfile()
+      .getName()
     return toast({
       title: `Welcome back, ${userName}!`,
       position: 'top',

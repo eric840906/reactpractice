@@ -1,13 +1,13 @@
 import React from 'react'
-import { Router } from 'react-router-dom'
-import { RouteWithSubRoutes } from '../../Router/RouteWithSubRoutes'
+import { Router, Switch } from 'react-router-dom'
+import { RouteWithSubRoutes } from 'Router/RouteWithSubRoutes'
 import { FaBreadSlice, FaCheck } from 'react-icons/fa'
 import { GiMeat } from 'react-icons/gi'
 import { MdOutlineRestaurantMenu } from 'react-icons/md'
 import { Grid } from '@chakra-ui/react'
-import StepperIndicator from '../../components/StepperIndicator'
+import StepperIndicator from 'components/StepperIndicator'
 import PropTypes from 'prop-types'
-import { history } from '../../Router/history'
+import { history } from 'Router/history'
 
 const active = {
   color: 'white',
@@ -54,10 +54,11 @@ const BuilderPage = ({ routes }) => {
             title='done'
           />
         </Grid>
-
-        {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} />
-        ))}
+        <Switch>
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </Switch>
       </Router>
     </>
   )

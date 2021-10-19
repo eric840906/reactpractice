@@ -1,6 +1,6 @@
 import React from 'react'
 import { Heading, VStack, Button } from '@chakra-ui/react'
-import { history } from '../../../Router/history'
+import { history } from 'Router/history'
 const BreadPage = () => {
   return (
     <>

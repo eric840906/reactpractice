@@ -9,7 +9,7 @@ import {
   Box
 } from '@chakra-ui/react'
 import { NavLink, useLocation } from 'react-router-dom'
-import routes from '../Router/routerConfig'
+import routes from 'Router/routerConfig'
 import React, { useEffect, useState } from 'react'
 import UserCard from './Drawer/UserCard'
 import Proptype from 'prop-types'

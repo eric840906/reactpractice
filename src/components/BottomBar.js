@@ -3,8 +3,8 @@ import { Button, Flex, Text, Icon, Heading } from '@chakra-ui/react'
 import { MdFavorite, MdListAlt, MdHome, MdShoppingCart } from 'react-icons/md'
 import { useLocation } from 'react-router-dom'
 import { FaTicketAlt } from 'react-icons/fa'
-import { history } from '../Router/history'
-import useResize from '../hooks/useResize'
+import { history } from 'Router/history'
+import useResize from 'hooks/useResize'
 const buttonNormalStyle = {
   flexDirection: 'column',
   borderRadius: '0',
