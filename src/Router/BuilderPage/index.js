@@ -1,10 +1,4 @@
-// import {
-//   BreadPage,
-//   MeatPage,
-//   OtherPage,
-//   DonePage
-// } from 'Pages/BuilderPage/SubPages'
-import { BreadPage, MeatPage, OtherPage, DonePage } from 'Pages/Nested'
+import { BreadPage, DonePage, MeatPage, OtherPage } from 'Pages/BuilderPage'
 
 import { Redirect } from 'react-router-dom'
 const BuilderPageRoutes = [
