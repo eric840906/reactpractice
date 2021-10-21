@@ -69,9 +69,16 @@ const BottomBar = () => {
   }, [location])
   const barRef = useRef(null)
   const [windowLength] = useResize(barRef)
+  const topPath = pathName => pathName && pathName.split('/')[1]
   const buttonStyle = value => {
-    console.log()
-    return linkState.pathname === value ? buttonActiveStyle : buttonNormalStyle
+    if (value === '/') {
+      return linkState.pathname === value
+        ? buttonActiveStyle
+        : buttonNormalStyle
+    }
+    return topPath(linkState.pathname) === value
+      ? buttonActiveStyle
+      : buttonNormalStyle
   }
   useEffect(() => {
     setDynamicMargin(windowLength)
@@ -85,10 +92,11 @@ const BottomBar = () => {
           <Text fontSize={{ base: 12, md: 18 }}>Likes</Text>
         </Button>
         <Button
-          {...buttonStyle('/builder')}
-          onClick={() => history.push('/builder')}
-          pointerEvents={linkState.pathname === '/builder' ? 'none' : 'all'}
-          // disabled={linkState.pathname === '/builder'}
+          {...buttonStyle('builder')}
+          onClick={() => history.push('builder')}
+          pointerEvents={
+            topPath(linkState.pathname) === 'builder' ? 'none' : 'all'
+          }
         >
           <Icon as={MdListAlt} {...iconStyle} />
           <Text fontSize={{ base: 12, md: 18 }}>DIY</Text>
@@ -111,6 +119,40 @@ const BottomBar = () => {
         </Button>
       </Flex>
     </>
+    // <>
+    //   <Flex marginTop={dynamicMargin} />
+    //   <Flex ref={barRef} {...barStyle}>
+    //     <Button {...buttonNormalStyle}>
+    //       <Icon as={MdFavorite} {...iconStyle} />
+    //       <Text fontSize={{ base: 12, md: 18 }}>Likes</Text>
+    //     </Button>
+    //     <Button
+    //       {...buttonStyle('/builder')}
+    //       onClick={() => history.push('/builder')}
+    //       pointerEvents={linkState.pathname === '/builder' ? 'none' : 'all'}
+    //       // disabled={linkState.pathname === '/builder'}
+    //     >
+    //       <Icon as={MdListAlt} {...iconStyle} />
+    //       <Text fontSize={{ base: 12, md: 18 }}>DIY</Text>
+    //     </Button>
+    //     <Button
+    //       {...buttonStyle('/')}
+    //       onClick={() => history.push('/')}
+    //       pointerEvents={linkState.pathname === '/' ? 'none' : 'all'}
+    //     >
+    //       <Icon as={MdHome} {...iconStyle} />
+    //       <Heading fontSize={{ base: 12, md: 18 }}>Home</Heading>
+    //     </Button>
+    //     <Button {...buttonNormalStyle}>
+    //       <Icon as={FaTicketAlt} {...iconStyle} />
+    //       <Text fontSize={{ base: 12, md: 18 }}>Coupons</Text>
+    //     </Button>
+    //     <Button {...buttonNormalStyle}>
+    //       <Icon as={MdShoppingCart} {...iconStyle} />
+    //       <Text fontSize={{ base: 12, md: 18 }}>Cart</Text>
+    //     </Button>
+    //   </Flex>
+    // </>
   )
 }
 

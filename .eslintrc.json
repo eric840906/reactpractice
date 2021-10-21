@@ -19,6 +19,8 @@
     ],
     "rules": {
         "react/no-children-prop": "off",
-        "multiline-ternary": "off"
+        "multiline-ternary": "off",
+        "indent": "off",
+        "react/react-in-jsx-scope": "off"
     }
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Flex, Heading, Image, Text, Icon } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import { MdEmail, MdAccountCircle } from 'react-icons/md'

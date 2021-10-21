@@ -1,4 +1,3 @@
-import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination, EffectCoverflow } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
@@ -9,7 +8,7 @@ import Proptype from 'prop-types'
 import { imageBox } from 'assets/style'
 
 SwiperCore.use([Pagination, EffectCoverflow])
-export const TheSwiper = ({ itemArr, options }) => {
+export const TheSwiper = ({ itemArr, options, func }) => {
   const defaultSwiper = itemArr.map(item => {
     return (
       <SwiperSlide style={{ width: '100%' }} key={item.id}>
@@ -77,6 +76,9 @@ export const TheSwiper = ({ itemArr, options }) => {
         {...options}
         onSlideChange={() => console.log('slide change')}
         onSwiper={swiper => console.log(swiper)}
+        onActiveIndexChange={swiper => {
+          func && func(swiper.realIndex)
+        }}
       >
         {renderSwiper()}
       </Swiper>
@@ -86,5 +88,6 @@ export const TheSwiper = ({ itemArr, options }) => {
 
 TheSwiper.propTypes = {
   itemArr: Proptype.array,
-  options: Proptype.object
+  options: Proptype.object,
+  func: Proptype.func
 }

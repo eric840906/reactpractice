@@ -1,5 +1,5 @@
 import { Image, Flex } from '@chakra-ui/react'
-import React from 'react'
+
 import Proptype from 'prop-types'
 
 class PhotoItem extends React.Component {

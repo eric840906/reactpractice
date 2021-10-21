@@ -1,4 +1,3 @@
-import React from 'react'
 import { Flex, Text, Divider } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 

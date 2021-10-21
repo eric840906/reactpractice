@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Flex, Heading } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { useLocation } from 'react-router-dom'

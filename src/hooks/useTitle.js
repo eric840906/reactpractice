@@ -4,7 +4,7 @@ const useTitle = pathName => {
   const [pageTitle, setPageTitle] = useState('')
   useEffect(() => {
     const filterTitle = () => {
-      switch (pathName.substring(1)) {
+      switch (pathName.split('/')[1]) {
         case 'builder':
           return 'Sandwich builder'
         case 'menu':

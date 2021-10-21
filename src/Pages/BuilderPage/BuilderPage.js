@@ -1,5 +1,5 @@
-import React from 'react'
-import { Router, Switch } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Router, Switch, useLocation } from 'react-router-dom'
 import { RouteWithSubRoutes } from 'Router/RouteWithSubRoutes'
 import { FaBreadSlice, FaCheck } from 'react-icons/fa'
 import { GiMeat } from 'react-icons/gi'
@@ -13,10 +13,10 @@ const active = {
   color: 'white',
   bgColor: 'brand.200'
 }
-// const success = {
-//   color: 'white',
-//   bgColor: 'brand.green'
-// }
+const success = {
+  color: 'white',
+  bgColor: 'brand.green'
+}
 const inActive = {
   color: 'brand.gray',
   bgColor: 'white',
@@ -24,35 +24,51 @@ const inActive = {
 }
 
 const BuilderPage = ({ routes }) => {
-  console.log(routes)
+  const location = useLocation()
+  const indicators = [
+    { title: 'bread', icon: <FaBreadSlice size={25} /> },
+    { title: 'meat', icon: <GiMeat size={25} /> },
+    { title: 'other', icon: <MdOutlineRestaurantMenu size={25} /> },
+    { title: 'done', icon: <FaCheck size={25} /> }
+  ]
+  const routeIndex = currentName => {
+    return indicators.findIndex(indicator => indicator.title === currentName)
+  }
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const indicatorStyle = index => {
+    return index === currentIndex
+      ? active
+      : currentIndex > index
+      ? success
+      : inActive
+  }
+  const renderIndicators = () =>
+    indicators.map((indicator, i) => {
+      return (
+        <StepperIndicator
+          {...indicator}
+          {...indicatorStyle(i)}
+          key={indicator.title}
+          lineWidth='25%'
+        />
+      )
+    })
+  useEffect(() => {
+    if (!location.pathname) return
+    const subPath = location.pathname && location.pathname.split('/')[2]
+    subPath && setCurrentIndex(routeIndex(subPath))
+  }, [location])
+
   return (
     <>
       <Router history={history}>
-        <Grid w='100%' mt={10} mb={20} templateColumns='repeat(4, 1fr)'>
-          <StepperIndicator
-            {...active}
-            icon={<FaBreadSlice size={25} />}
-            lineWidth='25%'
-            title='bread'
-          />
-          <StepperIndicator
-            {...inActive}
-            icon={<GiMeat size={25} />}
-            lineWidth='25%'
-            title='meat'
-          />
-          <StepperIndicator
-            {...inActive}
-            icon={<MdOutlineRestaurantMenu size={25} />}
-            lineWidth='25%'
-            title='others'
-          />
-          <StepperIndicator
-            {...inActive}
-            icon={<FaCheck size={25} />}
-            lineWidth='25%'
-            title='done'
-          />
+        <Grid
+          w='100%'
+          mt={10}
+          mb={{ base: 10, sm: 20 }}
+          templateColumns='repeat(4, 1fr)'
+        >
+          {renderIndicators()}
         </Grid>
         <Switch>
           {routes.map((route, i) => (

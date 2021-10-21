@@ -1,4 +1,3 @@
-import React from 'react'
 import { Flex, Image, Heading, Text, Fade } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 import { textOverflow } from 'assets/style'

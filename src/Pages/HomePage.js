@@ -1,5 +1,5 @@
 import { VStack } from '@chakra-ui/react'
-import React from 'react'
+
 import { TheSwiper } from 'components/Swiper/Swiper'
 import BuilderBlock from 'components/BuilderBlock'
 import ProductList from 'components/Product/ProductList'
@@ -76,9 +76,9 @@ const HomePage = () => {
       id: 3
     },
     {
-      title: 'butterbrot',
+      title: 'fruit butterbrot',
       class: 'snacks',
-      ingredients: ['bread', 'home made sausa'],
+      ingredients: ['bread', 'seasonal fruits', 'honey'],
       price: 1.99,
       imageUrl:
         'https://images.unsplash.com/photo-1631001822163-78f66f1670b8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80',
@@ -99,6 +99,15 @@ const HomePage = () => {
       imageUrl:
         'https://images.unsplash.com/photo-1553909489-cd47e0907980?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80',
       id: 5
+    },
+    {
+      title: 'butterbrot',
+      class: 'snacks',
+      ingredients: ['bread', 'home made sausa'],
+      price: 1.99,
+      imageUrl:
+        'https://images.unsplash.com/photo-1630230596557-ad07b433f5c0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
+      id: 6
     }
   ]
   const TopSwiperOption = {

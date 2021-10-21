@@ -1,6 +1,7 @@
 import { HomePage, MenuPage, BuilderPage } from 'Pages'
+import { Redirect } from 'react-router-dom'
 import BuilderPageRoutes from './BuilderPage'
-import React from 'react'
+
 const routes = [
   {
     path: '/',
@@ -21,8 +22,8 @@ const routes = [
     routes: BuilderPageRoutes
   },
   {
-    path: '**',
-    component: () => <h1>not found</h1>
+    path: '',
+    component: () => <Redirect to='/' />
   }
 ]
 

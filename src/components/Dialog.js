@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Modal,
   ModalOverlay,
@@ -19,12 +18,12 @@ const BasicDialog = ({ modalOptions }) => {
       case 'icon':
         return (
           <Button
-            variant="default"
-            w="40px"
-            h="40px"
+            variant='default'
+            w='40px'
+            h='40px'
             padding={0}
-            boxShadow="none"
-            borderRadius="100"
+            boxShadow='none'
+            borderRadius='100'
             onClick={onOpen}
           >
             {modalOptions.triggerBtn.icon()}
@@ -33,10 +32,10 @@ const BasicDialog = ({ modalOptions }) => {
       case 'text':
         return (
           <Button
-            variant="default"
-            w="40px"
-            h="40px"
-            borderRadius="100"
+            variant='default'
+            w='40px'
+            h='40px'
+            borderRadius='100'
             onClick={onOpen}
           >
             {modalOptions.triggerBtn.text()}
@@ -45,10 +44,10 @@ const BasicDialog = ({ modalOptions }) => {
       default:
         return (
           <Button
-            variant="default"
-            w="40px"
-            h="40px"
-            borderRadius="100"
+            variant='default'
+            w='40px'
+            h='40px'
+            borderRadius='100'
             onClick={onOpen}
           >
             Open Modal
@@ -68,19 +67,19 @@ const BasicDialog = ({ modalOptions }) => {
   //       onClick={btn.onClick}
   //     ></Button>
   //   ))
-  const renderBtns = (btnArr) =>
-    btnArr.map((btn) => (
+  const renderBtns = btnArr =>
+    btnArr.map(btn => (
       <Button
         variant={btn.variant}
         leftIcon={btn.icon ? btn.icon() : ''}
-        w="100%"
+        w='100%'
         p={1}
         key={btn.title}
         onClick={async () => {
           await btn.onClick()
           onClose()
         }}
-        m="auto"
+        m='auto'
       >
         {btn.title}
       </Button>
@@ -90,10 +89,10 @@ const BasicDialog = ({ modalOptions }) => {
       {modalOptions && openBtn()}
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent w="90%">
+        <ModalContent w='90%'>
           <ModalHeader>{modalOptions.title}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody px={2} pb={6} display="flex" flexDirection="column">
+          <ModalBody px={2} pb={6} display='flex' flexDirection='column'>
             {modalOptions.bodyBtns && renderBtns(modalOptions.bodyBtns)}
           </ModalBody>
           <ModalFooter>
