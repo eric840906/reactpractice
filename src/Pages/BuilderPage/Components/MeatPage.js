@@ -3,6 +3,7 @@ import { Heading, VStack, Button } from '@chakra-ui/react'
 import useMyToast from 'hooks/useMyToast'
 import { history } from 'Router/history'
 import { TheSwiper } from 'components/Swiper/Swiper'
+import { meats } from 'demo/demoData'
 const MeatPage = () => {
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState(null)
@@ -16,43 +17,6 @@ const MeatPage = () => {
     setSelected(setMeat)
     console.log(selected)
   }, [current])
-  const meats = [
-    {
-      title: 'Roasted beef',
-      price: 0.99,
-      image:
-        'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-      id: 1
-    },
-    {
-      title: 'Roasted chicken',
-      price: 0.99,
-      image:
-        'https://images.unsplash.com/photo-1611489142329-5f62cfa43e6e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-      id: 2
-    },
-    {
-      title: 'Ham',
-      price: 1.99,
-      image:
-        'https://images.unsplash.com/photo-1524438418049-ab2acb7aa48f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-      id: 3
-    },
-    {
-      title: 'Sausage',
-      price: 1.99,
-      image:
-        'https://images.unsplash.com/photo-1547424450-75ec164925ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-      id: 4
-    },
-    {
-      title: 'Pork ribs',
-      price: 1.99,
-      image:
-        'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80',
-      id: 5
-    }
-  ]
 
   const SellerSwiperOption = {
     swipertype: 'choice',

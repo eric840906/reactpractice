@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Heading, VStack, Button, useToast } from '@chakra-ui/react'
 import { history } from 'Router/history'
 import { TheSwiper } from 'components/Swiper/Swiper'
+import { breads } from 'demo/demoData'
 const BreadPage = () => {
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState(null)
@@ -21,43 +22,6 @@ const BreadPage = () => {
     setSelected(setBread)
     console.log(selected)
   }, [current])
-  const breads = [
-    {
-      title: 'White bread',
-      price: 0.99,
-      image:
-        'https://images.unsplash.com/photo-1611824431626-300e118a94fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
-      id: 1
-    },
-    {
-      title: 'Wholegrain bread',
-      price: 0.99,
-      image:
-        'https://images.unsplash.com/photo-1529059957291-76ab3843ef63?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-      id: 2
-    },
-    {
-      title: 'Chestnut bread',
-      price: 1.99,
-      image:
-        'https://images.unsplash.com/photo-1611070097019-134ef801cfa5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-      id: 3
-    },
-    {
-      title: 'Italian bread',
-      price: 1.99,
-      image:
-        'https://images.unsplash.com/photo-1580822642566-5138e95313d3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-      id: 4
-    },
-    {
-      title: 'Garlic bread',
-      price: 1.99,
-      image:
-        'https://images.unsplash.com/photo-1547033965-5dd4885e88ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-      id: 5
-    }
-  ]
 
   const SellerSwiperOption = {
     swipertype: 'choice',
