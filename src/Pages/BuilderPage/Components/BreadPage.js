@@ -76,8 +76,7 @@ const BreadPage = () => {
           options={SellerSwiperOption}
           func={setCurrent}
         />
-        {/* {selected && <Text>{selected.title}</Text>} */}
-        <Button w='80%' variant='default' onClick={() => confirmBread()}>
+        <Button w="80%" variant="default" onClick={() => confirmBread()}>
           Next
         </Button>
       </VStack>
