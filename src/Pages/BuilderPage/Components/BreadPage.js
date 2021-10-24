@@ -3,12 +3,16 @@ import { Heading, VStack, Button, useToast } from '@chakra-ui/react'
 import { history } from 'Router/history'
 import { TheSwiper } from 'components/Swiper/Swiper'
 import { breads } from 'demo/demoData'
+import { submitBread } from 'actions'
+import { useDispatch } from 'react-redux'
 const BreadPage = () => {
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState(null)
+  const dispatch = useDispatch()
   const toast = useToast()
   const setBread = () => breads[current] && setSelected(breads[current])
   const confirmBread = () => {
+    dispatch(submitBread(selected))
     toast({
       title: `${selected.title} has been added to your recipe!`,
       position: 'bottom',
@@ -76,7 +80,7 @@ const BreadPage = () => {
           options={SellerSwiperOption}
           func={setCurrent}
         />
-        <Button w="80%" variant="default" onClick={() => confirmBread()}>
+        <Button w="80%" variant="default" onClick={confirmBread}>
           Next
         </Button>
       </VStack>

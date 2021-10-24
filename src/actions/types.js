@@ -1,2 +1,5 @@
 export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
+export const SUBMIT_BREAD = 'SUBMIT_BREAD'
+export const SUBMIT_MEAT = 'SUBMIT_MEAT'
+export const SUBMIT_SUB = 'SUBMIT_SUB'

@@ -13,6 +13,8 @@ import useMyToast from 'hooks/useMyToast'
 import { FaCheck } from 'react-icons/fa'
 import { useHistory } from 'react-router-dom'
 import { ingredients, sauces } from 'demo/demoData'
+import { useDispatch } from 'react-redux'
+import { submitSub } from 'actions'
 
 const Checkboxes = ({ data, selected, onClick }) => {
   return data.map((ingredient) => (
@@ -20,6 +22,7 @@ const Checkboxes = ({ data, selected, onClick }) => {
       flexDirection="column"
       key={ingredient.title}
       onClick={() => onClick(ingredient)}
+      cursor="pointer"
     >
       <Box position="relative">
         <Flex
@@ -54,6 +57,7 @@ const Checkboxes = ({ data, selected, onClick }) => {
 
 const OthePage = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
   const toastId = 'Limit-warning'
   const { warningToast } = useMyToast(toastId)
   const [selectedIngredients, setSelectedIngredients] = useState([])
@@ -67,8 +71,12 @@ const OthePage = () => {
     if (state.length < limit) {
       stateSetter([...state, clickedItem])
     } else {
-      warningToast(`You can't choose more than ${limit}`, toastId)
+      warningToast(`You can't choose more than ${limit}`)
     }
+  }
+  const comfirmSub = () => {
+    dispatch(submitSub([...selectedIngredients, ...selectedSauce]))
+    return history.push('/builder/done')
   }
   return (
     <>
@@ -93,7 +101,7 @@ const OthePage = () => {
             onClick={onItemClick(selectedSauce, setSelectedSauce, 1)}
           />
         </Grid>
-        <Button variant="default" onClick={() => history.push('/builder/done')}>
+        <Button variant="default" onClick={comfirmSub}>
           Next
         </Button>
       </VStack>

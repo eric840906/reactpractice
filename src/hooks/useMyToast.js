@@ -32,7 +32,7 @@ const useMyToast = (id) => {
         id,
         title: successText,
         position: 'bottom',
-        status: 'error',
+        status: 'success',
         duration: 3000,
         isClosable: true
       })

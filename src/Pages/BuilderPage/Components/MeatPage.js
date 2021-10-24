@@ -4,12 +4,16 @@ import useMyToast from 'hooks/useMyToast'
 import { history } from 'Router/history'
 import { TheSwiper } from 'components/Swiper/Swiper'
 import { meats } from 'demo/demoData'
+import { submitMeat } from 'actions'
+import { useDispatch } from 'react-redux'
 const MeatPage = () => {
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState(null)
+  const dispatch = useDispatch()
   const { successToast } = useMyToast()
   const setMeat = () => meats[current] && setSelected(meats[current])
   const confirmBread = () => {
+    dispatch(submitMeat(selected))
     successToast(`${selected.title} has been added to your recipe!`)
     return history.push('/builder/other')
   }
@@ -71,7 +75,7 @@ const MeatPage = () => {
           options={SellerSwiperOption}
           func={setCurrent}
         />
-        <Button w="80%" variant="default" onClick={() => confirmBread()}>
+        <Button w="80%" variant="default" onClick={confirmBread}>
           Next
         </Button>
       </VStack>
