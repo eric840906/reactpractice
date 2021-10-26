@@ -3,7 +3,8 @@ import { Button, Flex, Text, Icon, Heading } from '@chakra-ui/react'
 import { MdFavorite, MdListAlt, MdHome, MdShoppingCart } from 'react-icons/md'
 import { useLocation } from 'react-router-dom'
 import { FaTicketAlt } from 'react-icons/fa'
-import { history } from 'Router/history'
+// import { history } from 'Router/history'
+import { useHistory } from 'react-router'
 import useResize from 'hooks/useResize'
 const buttonNormalStyle = {
   flexDirection: 'column',
@@ -64,6 +65,7 @@ const BottomBar = () => {
   const [dynamicMargin, setDynamicMargin] = useState(20)
   const location = useLocation()
   const [linkState, setLinkState] = useState('/')
+  const history = useHistory()
   useEffect(() => {
     setLinkState(location)
   }, [location])
