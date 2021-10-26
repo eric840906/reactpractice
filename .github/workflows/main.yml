@@ -30,10 +30,10 @@ jobs:
       uses: actions/checkout@master
 
     - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@main
+      uses: JamesIves/github-pages-deploy-action@4.1.5
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         REACT_APP_TITLE: Sandwich app demo
         FOLDER: build
-        BUILD_SCRIPT: cp .env.example .env.local && npm && npm run build
+        BUILD_SCRIPT: npm && npm run build
