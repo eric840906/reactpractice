@@ -31,8 +31,8 @@ jobs:
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.5
       with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
-        REACT_APP_TITLE: Sandwich app demo
+        # REACT_APP_TITLE: Sandwich app demo
         FOLDER: build
-        BUILD_SCRIPT: npm && npm run build
+        # BUILD_SCRIPT: npm && npm run build
