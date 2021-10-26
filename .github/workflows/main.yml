@@ -35,5 +35,5 @@ jobs:
         token: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         # REACT_APP_TITLE: Sandwich app demo
-        FOLDER: ./build
+        FOLDER: build
         # BUILD_SCRIPT: npm && npm run build
