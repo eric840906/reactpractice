@@ -4,15 +4,13 @@ import TopBar from './components/TopBar'
 import routes from './Router/routerConfig'
 import BottomBar from './components/BottomBar'
 import { HashRouter as Router, Switch } from 'react-router-dom'
-import { useHistory } from 'react-router'
 import { RouteWithSubRoutes } from './Router/RouteWithSubRoutes'
 
 const App = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const history = useHistory()
   return (
     <>
-      <Router history={history}>
+      <Router basename='/'>
         <TopBar onHamburgerClick={onOpen} />
         <SideDrawer onDrawerOpen={isOpen} onDrawerClose={onClose} />
         <Switch>
