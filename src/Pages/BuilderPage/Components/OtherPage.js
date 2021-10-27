@@ -17,40 +17,40 @@ import { useDispatch } from 'react-redux'
 import { submitSub } from 'actions'
 
 const Checkboxes = ({ data, selected, onClick }) => {
-  return data.map((ingredient) => (
+  return data.map(ingredient => (
     <Flex
-      flexDirection="column"
+      flexDirection='column'
       key={ingredient.title}
       onClick={() => onClick(ingredient)}
-      cursor="pointer"
+      cursor='pointer'
     >
-      <Box position="relative">
+      <Box position='relative'>
         <Flex
-          w="100%"
-          height="100%"
-          position="absolute"
-          bg="blackAlpha.800"
+          w='100%'
+          height='100%'
+          position='absolute'
+          bg='blackAlpha.800'
           display={
-            selected.some((item) => item.id === ingredient.id) ? 'flex' : 'none'
+            selected.some(item => item.id === ingredient.id) ? 'flex' : 'none'
           }
         >
           <Flex
-            m="auto"
-            borderRadius="100%"
+            m='auto'
+            borderRadius='100%'
             h={10}
             w={10}
             borderWidth={2}
-            borderColor="brand.green"
-            color="brand.green"
-            justifyContent="center"
-            alignItems="center"
+            borderColor='brand.green'
+            color='brand.green'
+            justifyContent='center'
+            alignItems='center'
           >
             <FaCheck size={25} />
           </Flex>
         </Flex>
-        <Image flex={1} maxBlockSize="200px" src={ingredient.imageUrl} />
+        <Image flex={1} maxBlockSize='200px' src={ingredient.imageUrl} />
       </Box>
-      <Text textTransform="capitalize">{ingredient.title}</Text>
+      <Text textTransform='capitalize'>{ingredient.title}</Text>
     </Flex>
   ))
 }
@@ -62,10 +62,10 @@ const OthePage = () => {
   const { warningToast } = useMyToast(toastId)
   const [selectedIngredients, setSelectedIngredients] = useState([])
   const [selectedSauce, setSelectedSauce] = useState([])
-  const onItemClick = (state, stateSetter, limit) => (clickedItem) => {
-    const isSelected = state.some((item) => item.id === clickedItem.id)
+  const onItemClick = (state, stateSetter, limit) => clickedItem => {
+    const isSelected = state.some(item => item.id === clickedItem.id)
     if (isSelected) {
-      stateSetter(state.filter((item) => item.id !== clickedItem.id))
+      stateSetter(state.filter(item => item.id !== clickedItem.id))
       return
     }
     if (state.length < limit) {
@@ -82,7 +82,7 @@ const OthePage = () => {
     <>
       <VStack gridGap={7} marginBottom={14}>
         <Heading>Ingredients</Heading>
-        <Grid templateColumns="repeat(3,1fr)" gridGap={2} padding={5}>
+        <Grid templateColumns='repeat(3,1fr)' gridGap={2} padding={5}>
           <Checkboxes
             data={ingredients}
             selected={selectedIngredients}
@@ -94,14 +94,14 @@ const OthePage = () => {
           />
         </Grid>
         <Heading>Sauces</Heading>
-        <Grid templateColumns="repeat(3,1fr)" gridGap={2} padding={5}>
+        <Grid templateColumns='repeat(3,1fr)' gridGap={2} padding={5}>
           <Checkboxes
             data={sauces}
             selected={selectedSauce}
             onClick={onItemClick(selectedSauce, setSelectedSauce, 1)}
           />
         </Grid>
-        <Button variant="default" onClick={comfirmSub}>
+        <Button w='80%' variant='default' onClick={comfirmSub}>
           Next
         </Button>
       </VStack>
