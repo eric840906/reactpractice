@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Heading, VStack, Button, useToast } from '@chakra-ui/react'
-import { history } from 'Router/history'
+import { useHistory } from 'react-router'
 import { TheSwiper } from 'components/Swiper/Swiper'
 import { breads } from 'demo/demoData'
 import { submitBread } from 'actions'
 import { useDispatch } from 'react-redux'
 const BreadPage = () => {
+  const history = useHistory()
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState(null)
   const dispatch = useDispatch()

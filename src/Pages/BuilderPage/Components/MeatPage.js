@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Heading, VStack, Button } from '@chakra-ui/react'
 import useMyToast from 'hooks/useMyToast'
-import { history } from 'Router/history'
+import { useHistory } from 'react-router'
 import { TheSwiper } from 'components/Swiper/Swiper'
 import { meats } from 'demo/demoData'
 import { submitMeat } from 'actions'
 import { useDispatch } from 'react-redux'
 const MeatPage = () => {
+  const history = useHistory()
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState(null)
   const dispatch = useDispatch()
@@ -75,7 +76,7 @@ const MeatPage = () => {
           options={SellerSwiperOption}
           func={setCurrent}
         />
-        <Button w="80%" variant="default" onClick={confirmBread}>
+        <Button w='80%' variant='default' onClick={confirmBread}>
           Next
         </Button>
       </VStack>
