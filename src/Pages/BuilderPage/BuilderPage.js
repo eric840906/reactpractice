@@ -7,7 +7,7 @@ import { MdOutlineRestaurantMenu } from 'react-icons/md'
 import { Grid } from '@chakra-ui/react'
 import StepperIndicator from 'components/StepperIndicator'
 import PropTypes from 'prop-types'
-import { history } from 'Router/history'
+import { useHistory } from 'react-router'
 
 const active = {
   color: 'white',
@@ -24,6 +24,7 @@ const inActive = {
 }
 
 const BuilderPage = ({ routes }) => {
+  const history = useHistory()
   const location = useLocation()
   const indicators = [
     { title: 'bread', icon: <FaBreadSlice size={25} /> },
