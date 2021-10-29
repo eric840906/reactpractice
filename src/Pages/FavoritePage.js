@@ -1,5 +1,5 @@
 import { Text } from '@chakra-ui/react'
-const MenuPage = () => {
+const FavoritePage = () => {
   return (
     <>
       <Text>123</Text>
@@ -7,4 +7,4 @@ const MenuPage = () => {
   )
 }
 
-export default MenuPage
+export default FavoritePage

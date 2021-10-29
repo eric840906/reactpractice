@@ -1,4 +1,4 @@
-import { HomePage, MenuPage, BuilderPage } from 'Pages'
+import { HomePage, FavoritePage, BuilderPage } from 'Pages'
 import { Redirect } from 'react-router-dom'
 import BuilderPageRoutes from './BuilderPage'
 
@@ -10,10 +10,10 @@ const routes = [
     component: HomePage
   },
   {
-    path: '/menu',
-    name: 'Menu',
+    path: '/favorite',
+    name: 'Favorite',
     exact: true,
-    component: MenuPage
+    component: FavoritePage
   },
   {
     path: '/builder',

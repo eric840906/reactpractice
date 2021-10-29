@@ -9,6 +9,8 @@ const useTitle = pathName => {
           return 'Sandwich builder'
         case 'menu':
           return 'Main menu'
+        case 'favorite':
+          return 'Favorite List'
         default:
           return "Loana's Sandwich"
       }

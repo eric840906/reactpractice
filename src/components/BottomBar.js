@@ -89,7 +89,13 @@ const BottomBar = () => {
     <>
       <Flex marginTop={dynamicMargin} />
       <Flex ref={barRef} {...barStyle}>
-        <Button {...buttonNormalStyle}>
+        <Button
+          {...buttonStyle('favorite')}
+          onClick={() => history.push('favorite')}
+          pointerEvents={
+            topPath(linkState.pathname) === 'favorite' ? 'none' : 'all'
+          }
+        >
           <Icon as={MdFavorite} {...iconStyle} />
           <Text fontSize={{ base: 12, md: 18 }}>Likes</Text>
         </Button>
