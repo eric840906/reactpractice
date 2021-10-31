@@ -8,7 +8,8 @@ import {
   List,
   Button,
   ListItem,
-  ListIcon
+  ListIcon,
+  AspectRatio
 } from '@chakra-ui/react'
 import useMyToast from 'hooks/useMyToast'
 import LocalStorage from 'util/myLocalStorage'
@@ -88,23 +89,23 @@ const ProductCard = ({ product }) => {
             onMouseLeave={() => setShowMask(false)}
             opacity={showMask ? 1 : 0}
           >
-            <Button
-              variant="default"
-              w={{ base: '50px', sm: '75px' }}
-              h={{ base: '50px', sm: '75px' }}
-              touchAction={showMask ? 'all' : 'none'}
-            >
-              <MdAddShoppingCart fontSize="30px" color="brand.100" />
-            </Button>
-            <Button
-              variant={isFav ? 'activeWithoutScale' : 'default'}
-              w={{ base: '50px', sm: '75px' }}
-              h={{ base: '50px', sm: '75px' }}
-              touchAction={showMask ? 'all' : 'none'}
-              onClick={onHeartClick}
-            >
-              <MdFavorite fontSize="30px" color="brand.100" />
-            </Button>
+            <AspectRatio minW={{ base: '60px', sm: '80px' }} ratio={1.68 / 1}>
+              <Button
+                variant="default"
+                pointerEvents={showMask ? 'all' : 'none'}
+              >
+                <MdAddShoppingCart fontSize="30px" color="brand.100" />
+              </Button>
+            </AspectRatio>
+            <AspectRatio minW={{ base: '60px', sm: '80px' }} ratio={1.68 / 1}>
+              <Button
+                variant={isFav ? 'activeWithoutScale' : 'default'}
+                pointerEvents={showMask ? 'all' : 'none'}
+                onClick={onHeartClick}
+              >
+                <MdFavorite fontSize="30px" color="brand.100" />
+              </Button>
+            </AspectRatio>
           </Flex>
           <Image
             w={{ base: '100px', sm: '150px' }}
