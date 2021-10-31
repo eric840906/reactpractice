@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   Flex,
   Image,
@@ -5,26 +6,106 @@ import {
   Text,
   Fade,
   List,
+  Button,
   ListItem,
   ListIcon
 } from '@chakra-ui/react'
+import useMyToast from 'hooks/useMyToast'
+import LocalStorage from 'util/myLocalStorage'
 import { FaBreadSlice } from 'react-icons/fa'
 import { GiMeat } from 'react-icons/gi'
-import { MdOutlineRestaurantMenu } from 'react-icons/md'
+import {
+  MdOutlineRestaurantMenu,
+  MdAddShoppingCart,
+  MdFavorite
+} from 'react-icons/md'
 import PropTypes from 'prop-types'
 import { textOverflow } from 'assets/style'
 import 'assets/style.css'
 
+const maskStyle = {
+  bg: 'blackAlpha.600',
+  w: '100%',
+  h: '100%',
+  position: 'absolute',
+  transition: '0.3s opacity ease-in-out',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  gridGap: 5
+}
+
 const ProductCard = ({ product }) => {
+  const [showMask, setShowMask] = useState(false)
+  const [isFav, setIsFav] = useState(
+    product.id &&
+      LocalStorage.get('favorites') &&
+      LocalStorage.get('favorites').some((item) => item.id === product.id)
+  )
+  const { successToast } = useMyToast()
+  const onHeartClick = () => {
+    return isFav ? removeFromFav(product) : addToFav(product)
+  }
+  const addToFav = (product) => {
+    if (!LocalStorage.get('favorites')) {
+      LocalStorage.set('favorites', [product])
+    } else {
+      const current = LocalStorage.get('favorites')
+      current.push(product)
+      LocalStorage.set('favorites', current)
+    }
+    setIsFav(true)
+    successToast(`${product.name} has been added to your list`)
+  }
+  const removeFromFav = (product) => {
+    console.log('remove')
+    const current = LocalStorage.get('favorites')
+    LocalStorage.set(
+      'favorites',
+      current.filter((item) => item.id !== product.id)
+    )
+    setIsFav(false)
+    successToast(`${product.name} has been removed from your list`)
+  }
   return (
-    <Flex borderRadius="10px" overflow="hidden" boxShadow="md" w="100%">
+    <Flex
+      borderRadius="10px"
+      overflow="hidden"
+      boxShadow="md"
+      w="100%"
+      onMouseEnter={() => setShowMask(true)}
+    >
       <Fade
         className="fade-card"
         timeout={10}
         in={true}
         style={{ display: 'flex' }}
       >
-        <Flex w="100%" bg="brand.100">
+        <Flex w="100%" bg="brand.100" position="relative">
+          <Flex
+            {...maskStyle}
+            onMouseEnter={() => setShowMask(true)}
+            onMouseLeave={() => setShowMask(false)}
+            opacity={showMask ? 1 : 0}
+          >
+            <Button
+              variant="default"
+              w={{ base: '50px', sm: '75px' }}
+              h={{ base: '50px', sm: '75px' }}
+              touchAction={showMask ? 'all' : 'none'}
+            >
+              <MdAddShoppingCart fontSize="30px" color="brand.100" />
+            </Button>
+            <Button
+              variant={isFav ? 'activeWithoutScale' : 'default'}
+              w={{ base: '50px', sm: '75px' }}
+              h={{ base: '50px', sm: '75px' }}
+              touchAction={showMask ? 'all' : 'none'}
+              onClick={onHeartClick}
+            >
+              <MdFavorite fontSize="30px" color="brand.100" />
+            </Button>
+          </Flex>
           <Image
             w={{ base: '100px', sm: '150px' }}
             objectFit="cover"
@@ -76,14 +157,7 @@ const ProductCard = ({ product }) => {
                   {product.sub.join(', ')}
                 </ListItem>
               )}
-              {/* {product.price && (
-                <ListItem {...textOverflow}>{`$${product.price}`}</ListItem>
-              )} */}
             </List>
-            {/* <Text {...textOverflow}>{product.bread}</Text>
-            <Text {...textOverflow}>{product.meat}</Text>
-            <Text {...textOverflow}>{product.sub.join(', ')}</Text> */}
-
             <Text
               textAlign="end"
               marginTop="auto"

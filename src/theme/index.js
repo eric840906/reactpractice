@@ -57,6 +57,26 @@ const theme = extendTheme({
           background: 'brand.200',
           color: 'orange.50',
           transform: 'scale(0.9)'
+        },
+        activeWithoutScale: {
+          background: 'brand.200',
+          color: 'orange.50'
+        },
+        modalBtn: {
+          background: 'transparent',
+          borderColor: 'white',
+          borderWidth: '1px',
+          boxShadow: 'md',
+          color: 'white',
+          _hover: {
+            background: 'brand.200',
+            color: 'brand.100'
+          },
+          _active: {
+            background: 'orange.700',
+            color: 'orange.50',
+            transform: 'scale(0.9)'
+          }
         }
       }
     },

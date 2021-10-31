@@ -45,6 +45,7 @@ const ProductList = ({ products }) => {
         bg="white"
         w="100%"
         position="sticky"
+        zIndex={10}
         top="56px"
         templateColumns={{
           base: 'repeat(4, calc(50% - 20px))',
