@@ -1,32 +1,28 @@
 export const eventItems = [
   {
     title: 'Summer Sale',
-    text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam, erat eget sagittis pulvinar, tellus nisl rho.',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam, erat eget sagittis pulvinar, tellus nisl rho.',
     image:
       'https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80',
     id: 1
   },
   {
     title: 'Event2',
-    text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam, erat eget sagittis pulvinar, tellus nisl rho.',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam, erat eget sagittis pulvinar, tellus nisl rho.',
     image:
       'https://images.unsplash.com/photo-1550547660-d9450f859349?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=465&q=80',
     id: 2
   },
   {
     title: 'Event3',
-    text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam, erat eget sagittis pulvinar, tellus nisl rho.',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam, erat eget sagittis pulvinar, tellus nisl rho.',
     image:
       'https://images.unsplash.com/photo-1617199045294-8053ccfa6f61?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=510&q=80',
     id: 3
   },
   {
     title: 'Event4',
-    text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam, erat eget sagittis pulvinar, tellus nisl rho.',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam, erat eget sagittis pulvinar, tellus nisl rho.',
     image:
       'https://images.unsplash.com/photo-1621188988280-67c8d6e130a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
     id: 4
@@ -34,68 +30,61 @@ export const eventItems = [
 ]
 export const products = [
   {
-    title: 'simple cheese sandwich',
+    name: 'simple cheese sandwich',
     class: 'sandwiches',
-    ingredients: ['white bread', 'cheese'],
+    bread: 'white bread',
+    sub: ['cheese'],
     price: 1.99,
     imageUrl:
       'https://images.unsplash.com/photo-1528736235302-52922df5c122?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1254&q=80',
     id: 1
   },
   {
-    title: 'fruit sandwich',
+    name: 'fruit sandwich',
     class: 'sandwiches',
-    ingredients: ['wholegrain bread', 'tomatoes', 'lettuce', 'cucumber'],
+    bread: 'wholegrain bread',
+    sub: ['tomatoes', 'lettuce', 'cucumber'],
     price: 1.99,
     imageUrl:
       'https://images.unsplash.com/photo-1592415499556-74fcb9f18667?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80',
     id: 2
   },
   {
-    title: 'Jumbo+ burger',
+    name: 'Jumbo+ burger',
     class: 'burgers',
-    ingredients: [
-      '3 beef patties',
-      'cheese',
-      'secret sauce',
-      'tomatoes',
-      'lettuce',
-      'cucumber'
-    ],
+    meat: 'beef patties',
+    sub: ['cheese', 'secret sauce', 'tomatoes', 'lettuce', 'cucumber'],
     price: 5.99,
     imageUrl:
       'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=999&q=80',
     id: 3
   },
   {
-    title: 'fruit butterbrot',
+    name: 'fruit butterbrot',
     class: 'snacks',
-    ingredients: ['bread', 'seasonal fruits', 'honey'],
+    bread: 'white bread',
+    sub: ['seasonal fruits', 'honey'],
     price: 1.99,
     imageUrl:
       'https://images.unsplash.com/photo-1631001822163-78f66f1670b8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80',
     id: 4
   },
   {
-    title: 'Ham sandwich',
+    name: 'Ham sandwich',
     class: 'sandwiches',
-    ingredients: [
-      'white bread',
-      'Ham',
-      'becon',
-      'cheese',
-      'tomatoes',
-      'lettuce'
-    ],
+    bread: 'white bread',
+    meat: 'Ham',
+    sub: ['cheese', 'tomatoes', 'lettuce'],
     price: 5.99,
     imageUrl:
       'https://images.unsplash.com/photo-1553909489-cd47e0907980?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80',
     id: 5
   },
   {
-    title: 'butterbrot',
+    name: 'butterbrot',
     class: 'snacks',
-    ingredients: ['bread', 'home made sausa'],
+    bread: 'white bread',
+    sub: ['home made sausa'],
     price: 1.99,
     imageUrl:
       'https://images.unsplash.com/photo-1630230596557-ad07b433f5c0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
